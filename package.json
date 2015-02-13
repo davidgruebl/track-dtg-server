@@ -1,7 +1,10 @@
 {
   "name": "track-dtg-server",
   "version": "0.0.1",
-  "private": true,
+  "author": {
+    "name": "David Thomas Grübl",
+    "email": "me@davidgruebl.com"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "test": "standard"
