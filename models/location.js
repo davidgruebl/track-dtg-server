@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Schema = mongoose.Schema
 
-var locationSchema = new Schema({
+var LocationSchema = new Schema({
   latitude: Number,
   longitude: Number,
   accuracy: Number,
@@ -12,4 +12,4 @@ var locationSchema = new Schema({
   timestamp: Date
 })
 
-module.exports = mongoose.model('Location', locationSchema)
+module.exports = mongoose.model('Location', LocationSchema)
