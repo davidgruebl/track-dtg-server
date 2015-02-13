@@ -1,6 +1,6 @@
 var Location = require('../models/location')
-var express = require('express')
 var passport = require('passport')
+var express = require('express')
 var router = express.Router()
 var basic = require('../controllers/auth')
 
@@ -26,7 +26,7 @@ router.route('/location/last')
     Location
       .find()
       .limit(1)
-      .sort({$natural:-1})
+      .sort({$natural: -1})
       .exec(function(err, location) {
         if (err) return res.send(err)
         res.json(location)

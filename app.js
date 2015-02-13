@@ -16,4 +16,3 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/api', locations)
 
 module.exports = app
-

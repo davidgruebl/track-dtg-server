@@ -12,7 +12,7 @@ var Basic = new BasicStrategy(
         if (user.password !== password) return done(null, false)
         return done(null, user)
       })
-     })
+    })
   })
 
 module.exports = passport.use('basic', Basic)
