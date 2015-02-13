@@ -1,18 +1,18 @@
 var passport = require('passport')
-var DigestStrategy = require('passport-http').DigestStrategy
+var BasicStrategy = require('passport-http').BasicStrategy
 var User = require('../models/user')
 
-var Digest = new DigestStrategy(
+var Basic = new BasicStrategy(
   { qop: 'auth' },
-  function(username, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) return done(err)
-      if (!user) return done(null, false)
-      return done(null, user, user.password)
-    })
-  },
-  function(params, done) {
-    done(null, true)
+  function(username, password, done) {
+    process.nextTick(function () {
+      User.findOne({ username: username }, function (err, user) {
+        if (err) return done(err)
+        if (!user) return done(null, false)
+        if (user.password !== password) return done(null, false)
+        return done(null, user)
+      })
+     })
   })
 
-module.exports = passport.use('digest', Digest)
+module.exports = passport.use('basic', Basic)
