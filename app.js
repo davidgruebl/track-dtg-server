@@ -8,7 +8,9 @@ var app = express()
 var dbName = 'locationsDB'
 var connectionString = 'mongodb://localhost:27017/' + dbName
 
-mongoose.connect(connectionString)
+mongoose.connect(connectionString, function(err) {
+  if (err) throw err
+})
 
 app.use(bodyParser.json())
 app.use(passport.initialize())
