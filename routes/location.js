@@ -4,6 +4,10 @@ var express = require('express')
 var router = express.Router()
 var basic = require('../controllers/auth')
 
+router.get('/', function(req, res) {
+  res.send('hello world :*')
+})
+
 router.route('/location')
   .get(function(req, res) {
     Location.find(function(err, location) {

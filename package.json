@@ -5,7 +5,7 @@
     "name": "David Thomas Grübl",
     "email": "me@davidgruebl.com"
   },
-  "description": "api with basic auth that allows to store an retrieve locations",
+  "description": "api with basic auth that allows to store and retrieve locations",
   "homepage": "http://track.dtg.sexy",
   "repository": {
     "type" : "git",
