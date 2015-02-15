@@ -4,6 +4,7 @@ var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 var locations = require('./routes/location')
 var app = express()
+app.set('trust proxy', true)
 
 var dbName = 'locationsDB'
 var connectionString = 'mongodb://localhost:27017/' + dbName
