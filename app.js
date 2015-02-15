@@ -18,4 +18,8 @@ app.use(passport.initialize())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/api', locations)
 
+app.get('/', function(req, res) {
+  res.redirect('https://dtg.sexy')
+})
+
 module.exports = app
