@@ -1,7 +1,7 @@
 var Location = require('../models/location')
 var passport = require('passport')
 var express = require('express')
-var router = express.Router()
+var router = new express.Router()
 var basic = require('../controllers/auth')
 
 router.get('/', function(req, res) {
@@ -16,7 +16,7 @@ router.route('/location')
     })
   })
   .post(
-    passport.authenticate('basic', { session: false }),
+    passport.authenticate(basic, { session: false }),
     function(req, res) {
     var location = new Location(req.body)
     location.save(function(err) {
