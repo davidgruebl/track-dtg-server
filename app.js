@@ -1,24 +1,29 @@
-var express = require('express')
-var passport = require('passport')
 var bodyParser = require('body-parser')
+var express = require('express')
 var mongoose = require('mongoose')
-var locations = require('./routes/location')
-var app = express()
-app.set('trust proxy', true)
+var morgan = require('morgan')
+var passport = require('passport')
 
 var dbName = 'locationsDB'
-var connectionString = 'mongodb://localhost:27017/' + dbName
 
-mongoose.connect(connectionString, function(err) {
-  if (err) throw err
-})
+var db = mongoose.createConnection('mongodb://localhost:27017/' + dbName)
 
+require('./models')(db)
+
+require('./lib/auth')(db, passport)
+
+var routes = require('./routes')(db, passport)
+
+var app = express()
+app.enable('trust proxy')
+
+app.use(morgan('tiny'))
 app.use(bodyParser.json())
 app.use(passport.initialize())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use('/api', locations)
+app.use('/api', routes.location)
 
-app.get('/', function(req, res) {
+app.all('/', function(req, res) {
   res.redirect('https://dtg.sexy')
 })
 
