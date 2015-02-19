@@ -1,5 +1,5 @@
 module.exports = function(db) {
-  ['user', 'location'].forEach(function (m) {
+  ['user', 'location', 'address'].forEach(function (m) {
     require('./' + m)(db)
   })
 }

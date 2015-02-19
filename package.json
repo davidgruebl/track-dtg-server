@@ -22,6 +22,7 @@
     "express": "^4.11.2",
     "mongoose": "^3.8.23",
     "morgan": "^1.5.1",
+    "node-geocoder": "^2.15.1",
     "passport": "^0.2.1",
     "passport-http": "^0.2.2"
   },

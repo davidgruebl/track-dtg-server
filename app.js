@@ -3,16 +3,15 @@ var express = require('express')
 var mongoose = require('mongoose')
 var morgan = require('morgan')
 var passport = require('passport')
+var loc_to_address = require('./lib/address')
 
 var dbName = 'locationsDB'
-
 var db = mongoose.createConnection('mongodb://localhost:27017/' + dbName)
 
 require('./models')(db)
-
 require('./lib/auth')(db, passport)
 
-var routes = require('./routes')(db, passport)
+var routes = require('./routes')(db, passport, loc_to_address)
 
 var app = express()
 app.enable('trust proxy')
