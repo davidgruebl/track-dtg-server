@@ -21,7 +21,7 @@ app.use(passport.initialize())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/api', routes.api)
 
-app.all('/', function(req, res) {
+app.all('/', function (req, res) {
   res.redirect('https://dtg.sexy')
 })
 

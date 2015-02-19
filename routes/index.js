@@ -1,4 +1,4 @@
-module.exports = function(db, passport) {
+module.exports = function (db, passport) {
   var exp = {}
   ;['api'].forEach(function (r) {
     exp[r] = require('./' + r)(db, passport)
