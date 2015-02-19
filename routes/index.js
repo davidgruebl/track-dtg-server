@@ -1,7 +1,7 @@
-module.exports = function(db, passport, loc_to_address) {
+module.exports = function(db, passport) {
   var exp = {}
-  ;['location'].forEach(function (r) {
-    exp[r] = require('./' + r)(db, passport, loc_to_address)
+  ;['api'].forEach(function (r) {
+    exp[r] = require('./' + r)(db, passport)
   })
   return exp
 }
