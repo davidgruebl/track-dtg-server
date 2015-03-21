@@ -14,9 +14,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "test": "standard",
-    "copy": "scp -r app.js bin/ lib/ models/ routes/ package.json root@178.62.249.245:/var/www/track",
-    "re:start": "ssh root@178.62.249.245 '/var/www/track/bin/restart.sh'",
-    "deploy": "npm run copy && npm run re:start"
+    "copy": "scp -r app.js bin/ lib/ models/ routes/ package.json root@178.62.249.245:/var/www/track"
   },
   "main": "./bin/www",
   "dependencies": {
